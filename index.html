@@ -33,7 +33,6 @@
       line-height: 1.6;
     }
 
-    /* ===== レイアウト ===== */
     #app {
       max-width: 480px;
       margin: 0 auto;
@@ -57,13 +56,10 @@
     header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.02em; }
     header .date-label { font-size: 12px; color: #94A3B8; }
 
-    /* ===== スクリーン切り替え ===== */
     .screen { display: none; flex-direction: column; flex: 1; }
     .screen.active { display: flex; }
 
     /* ===== 入力スクリーン ===== */
-    #input-screen { padding: 0; }
-
     .input-area {
       flex: 1;
       display: flex;
@@ -100,12 +96,7 @@
     textarea:focus { border-color: var(--blue); }
     textarea::placeholder { color: #CBD5E1; }
 
-    .char-count {
-      text-align: right;
-      font-size: 12px;
-      color: #94A3B8;
-      margin-top: -4px;
-    }
+    .char-count { text-align: right; font-size: 12px; color: #94A3B8; margin-top: -4px; }
 
     .btn-row { display: flex; gap: 10px; }
 
@@ -121,21 +112,12 @@
       transition: opacity 0.2s, transform 0.1s;
     }
     .btn:active { transform: scale(0.97); }
-    .btn-primary { background: var(--blue); color: var(--white); }
-    .btn-secondary { background: var(--gray); color: var(--steel); border: 1.5px solid var(--border); }
-    .btn-save { background: var(--success); color: var(--white); }
-    .btn-danger { background: var(--danger); color: var(--white); }
-    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-primary   { background: var(--blue);    color: var(--white); }
+    .btn-secondary { background: var(--gray);    color: var(--steel); border: 1.5px solid var(--border); }
+    .btn-save      { background: var(--success); color: var(--white); }
+    .btn:disabled  { opacity: 0.4; cursor: not-allowed; }
 
     /* ===== チャットスクリーン ===== */
-    #chat-screen { padding: 0; }
-
-    .chat-header-inner {
-      padding: 12px 16px 0;
-      font-size: 13px;
-      color: var(--steel);
-    }
-
     .chat-messages {
       flex: 1;
       overflow-y: auto;
@@ -165,78 +147,48 @@
       border-bottom-left-radius: 4px;
       border: 1px solid var(--border);
     }
-    .msg.ai .angles {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
-    }
+    .msg.ai .angles { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); }
     .msg.ai .angles-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 12px; font-weight: 700; color: var(--blue);
+      margin-bottom: 6px; letter-spacing: 0.05em;
     }
     .angle-tag {
       display: inline-block;
-      background: var(--lblue);
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 20px;
+      background: var(--lblue); color: var(--blue);
+      font-size: 12px; font-weight: 600;
+      padding: 3px 9px; border-radius: 20px;
       margin: 2px 3px 2px 0;
     }
 
     .chat-input-area {
       padding: 12px 16px;
       border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      display: flex; flex-direction: column; gap: 8px;
       background: var(--white);
     }
-
-    .chat-input-row {
-      display: flex;
-      gap: 8px;
-      align-items: flex-end;
-    }
-
+    .chat-input-row { display: flex; gap: 8px; align-items: flex-end; }
     .chat-input {
       flex: 1;
       padding: 10px 12px;
       border: 1.5px solid var(--border);
       border-radius: 20px;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      resize: none;
-      min-height: 40px;
-      max-height: 100px;
+      font-size: 14px; font-family: inherit;
+      outline: none; resize: none;
+      min-height: 40px; max-height: 100px;
       line-height: 1.5;
       background: var(--gray);
     }
     .chat-input:focus { border-color: var(--blue); background: var(--white); }
 
     .send-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      background: var(--blue);
-      color: var(--white);
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: opacity 0.2s;
+      width: 40px; height: 40px;
+      border-radius: 50%; border: none;
+      background: var(--blue); color: var(--white);
+      font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: opacity 0.2s;
     }
     .send-btn:disabled { opacity: 0.4; }
-
     .chat-actions { display: flex; gap: 8px; }
 
     /* ===== 設定スクリーン ===== */
@@ -246,79 +198,63 @@
     .setting-label { font-size: 13px; font-weight: 700; color: var(--navy); }
     .setting-desc  { font-size: 12px; color: var(--steel); line-height: 1.5; }
 
-    input[type="text"], input[type="password"] {
+    input[type="text"] {
       padding: 11px 13px;
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-      color: var(--navy);
-      outline: none;
-      width: 100%;
+      font-size: 14px; font-family: inherit;
+      color: var(--navy); outline: none; width: 100%;
     }
     input:focus { border-color: var(--blue); }
 
-    .setting-separator {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 4px 0;
+    .setting-note {
+      background: var(--lblue);
+      border: 1px solid #BFDBFE;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--steel);
+      line-height: 1.6;
     }
+    .setting-note strong { color: var(--navy); }
 
+    .setting-separator { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+
+    /* ===== トースト ===== */
     .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--navy);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 24px;
-      font-size: 14px;
-      opacity: 0;
-      transition: all 0.3s;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 999;
+      position: fixed; bottom: 24px;
+      left: 50%; transform: translateX(-50%) translateY(20px);
+      background: var(--navy); color: var(--white);
+      padding: 10px 20px; border-radius: 24px;
+      font-size: 14px; opacity: 0;
+      transition: all 0.3s; pointer-events: none;
+      white-space: nowrap; z-index: 999;
     }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.show    { opacity: 1; transform: translateX(-50%) translateY(0); }
     .toast.success { background: var(--success); }
     .toast.error   { background: var(--danger); }
 
-    /* ===== ボトムナビ ===== */
+    /* ===== ナビ ===== */
     nav {
-      display: flex;
-      background: var(--white);
+      display: flex; background: var(--white);
       border-top: 1px solid var(--border);
-      position: sticky;
-      bottom: 0;
+      position: sticky; bottom: 0;
     }
     .nav-btn {
-      flex: 1;
-      padding: 10px 4px 12px;
-      border: none;
-      background: transparent;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      color: #94A3B8;
-      transition: color 0.2s;
+      flex: 1; padding: 10px 4px 12px;
+      border: none; background: transparent;
+      font-size: 20px; cursor: pointer;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2px;
+      color: #94A3B8; transition: color 0.2s;
     }
     .nav-btn span { font-size: 10px; font-weight: 600; }
     .nav-btn.active { color: var(--blue); }
 
     /* ===== ローディング ===== */
-    .loading-dots {
-      display: flex;
-      gap: 5px;
-      padding: 4px 0;
-    }
+    .loading-dots { display: flex; gap: 5px; padding: 4px 0; }
     .loading-dots span {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       background: var(--steel);
       animation: bounce 1.2s infinite ease-in-out;
     }
@@ -326,7 +262,7 @@
     .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes bounce {
       0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-      40% { transform: scale(1); opacity: 1; }
+      40%            { transform: scale(1);   opacity: 1; }
     }
   </style>
 </head>
@@ -344,11 +280,13 @@
   <div class="screen active" id="input-screen">
     <div class="input-area">
       <div class="hint">今日気になったこと、仕事での気づき、違和感、やらかしたことなど、なんでも。</div>
-      <textarea id="main-input" placeholder="例）今日の会議で、DXと言いながら全員Excelで管理していることに気づいた。誰も指摘しないのが不思議で..." rows="8"></textarea>
+      <textarea id="main-input"
+        placeholder="例）今日の会議で、DXと言いながら全員Excelで管理していることに気づいた。誰も指摘しないのが不思議で..."
+        rows="8"></textarea>
       <div class="char-count"><span id="char-count">0</span> 文字</div>
       <div class="btn-row">
         <button class="btn btn-secondary" id="btn-save-only">そのまま保存</button>
-        <button class="btn btn-primary" id="btn-ai-chat">AIに相談 →</button>
+        <button class="btn btn-primary"   id="btn-ai-chat">AIに相談 →</button>
       </div>
     </div>
   </div>
@@ -362,8 +300,8 @@
         <button class="send-btn" id="btn-send">↑</button>
       </div>
       <div class="chat-actions">
-        <button class="btn btn-secondary" id="btn-back-input" style="font-size:13px; padding:10px;">← 書き直す</button>
-        <button class="btn btn-save" id="btn-save-from-chat" style="font-size:13px; padding:10px;">保存する ✓</button>
+        <button class="btn btn-secondary" id="btn-back-input"     style="font-size:13px; padding:10px;">← 書き直す</button>
+        <button class="btn btn-save"      id="btn-save-from-chat" style="font-size:13px; padding:10px;">保存する ✓</button>
       </div>
     </div>
   </div>
@@ -371,24 +309,27 @@
   <!-- ===== 設定スクリーン ===== -->
   <div class="screen" id="settings-screen">
     <div class="setting-group">
-      <div class="setting-label">Gemini API キー</div>
-      <div class="setting-desc">Google AI Studio（<a href="https://aistudio.google.com" target="_blank" style="color:var(--blue)">aistudio.google.com</a>）で取得した API キーを入力してください。</div>
-      <input type="password" id="gemini-key" placeholder="AIza..." />
-    </div>
-    <hr class="setting-separator" />
-    <div class="setting-group">
       <div class="setting-label">Google Apps Script URL</div>
       <div class="setting-desc">GAS をデプロイしたときに発行される「ウェブアプリの URL」を貼り付けてください。</div>
       <input type="text" id="gas-url" placeholder="https://script.google.com/macros/s/..." />
     </div>
+
+    <div class="setting-note">
+      <strong>🔑 Gemini APIキーの設定場所が変わりました</strong><br>
+      APIキーはこの画面ではなく、Google Apps Script の「スクリプトのプロパティ」に設定します。<br>
+      → GASエディタ ⚙️ プロジェクトの設定 → スクリプトのプロパティ → キー名: <code>GEMINI_API_KEY</code>
+    </div>
+
     <hr class="setting-separator" />
     <button class="btn btn-primary" id="btn-save-settings">設定を保存</button>
-    <div style="font-size:12px; color:var(--steel); margin-top:4px;">設定はこのブラウザにのみ保存されます。</div>
+    <div style="font-size:12px; color:var(--steel); margin-top:4px;">
+      設定はこのブラウザにのみ保存されます。別のデバイスでは再入力が必要です。
+    </div>
   </div>
 
   <nav>
     <button class="nav-btn active" data-target="input-screen">✏️<span>メモ</span></button>
-    <button class="nav-btn" data-target="settings-screen">⚙️<span>設定</span></button>
+    <button class="nav-btn"        data-target="settings-screen">⚙️<span>設定</span></button>
   </nav>
 </div>
 
@@ -399,46 +340,35 @@
   //  状態管理
   // ============================================================
   const state = {
-    geminiKey: localStorage.getItem('gemini_key') || '',
-    gasUrl:    localStorage.getItem('gas_url') || '',
-    chatHistory: [],   // Gemini に渡す会話履歴
-    currentEntry: null // 保存予定のエントリ
+    gasUrl:      localStorage.getItem('gas_url') || '',
+    chatHistory: [],
+    currentEntry: null
   };
 
   // ============================================================
   //  初期化
   // ============================================================
   document.addEventListener('DOMContentLoaded', () => {
-    updateHeaderDate();
-    loadSettings();
+    document.getElementById('header-date').textContent =
+      new Date().toLocaleDateString('ja-JP', {
+        year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'
+      });
+    document.getElementById('gas-url').value = state.gasUrl;
     bindEvents();
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     }
   });
 
-  function updateHeaderDate() {
-    const now = new Date();
-    const d = now.toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric', weekday:'short' });
-    document.getElementById('header-date').textContent = d;
-  }
-
-  function loadSettings() {
-    document.getElementById('gemini-key').value = state.geminiKey;
-    document.getElementById('gas-url').value    = state.gasUrl;
-  }
-
   // ============================================================
   //  イベント
   // ============================================================
   function bindEvents() {
-    // 文字数カウント
     const mainInput = document.getElementById('main-input');
     mainInput.addEventListener('input', () => {
       document.getElementById('char-count').textContent = mainInput.value.length;
     });
 
-    // そのまま保存
     document.getElementById('btn-save-only').addEventListener('click', async () => {
       const text = mainInput.value.trim();
       if (!text) { showToast('テキストを入力してください', 'error'); return; }
@@ -447,36 +377,29 @@
       document.getElementById('char-count').textContent = '0';
     });
 
-    // AIに相談
     document.getElementById('btn-ai-chat').addEventListener('click', async () => {
       const text = mainInput.value.trim();
-      if (!text) { showToast('テキストを入力してください', 'error'); return; }
-      if (!state.geminiKey) { showToast('設定からGemini APIキーを入力してください', 'error'); return; }
+      if (!text)            { showToast('テキストを入力してください', 'error'); return; }
+      if (!state.gasUrl)    { showToast('設定からGAS URLを入力してください', 'error'); return; }
       switchScreen('chat-screen');
       state.chatHistory = [];
       renderUserMsg(text);
-      await askGemini(text, true);
+      await askAI(text);
     });
 
-    // チャット送信
     document.getElementById('btn-send').addEventListener('click', sendChatMessage);
-    document.getElementById('chat-input').addEventListener('keydown', (e) => {
+    document.getElementById('chat-input').addEventListener('keydown', e => {
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
     });
 
-    // 書き直す
     document.getElementById('btn-back-input').addEventListener('click', () => {
       switchScreen('input-screen');
       state.chatHistory = [];
       clearChat();
     });
 
-    // チャットから保存
     document.getElementById('btn-save-from-chat').addEventListener('click', async () => {
-      if (!state.currentEntry) {
-        showToast('まだAIと会話していません', 'error');
-        return;
-      }
+      if (!state.currentEntry) { showToast('まだAIと会話していません', 'error'); return; }
       await saveEntryObj(state.currentEntry);
       switchScreen('input-screen');
       document.getElementById('main-input').value = '';
@@ -485,16 +408,12 @@
       clearChat();
     });
 
-    // 設定保存
     document.getElementById('btn-save-settings').addEventListener('click', () => {
-      state.geminiKey = document.getElementById('gemini-key').value.trim();
-      state.gasUrl    = document.getElementById('gas-url').value.trim();
-      localStorage.setItem('gemini_key', state.geminiKey);
-      localStorage.setItem('gas_url',    state.gasUrl);
+      state.gasUrl = document.getElementById('gas-url').value.trim();
+      localStorage.setItem('gas_url', state.gasUrl);
       showToast('設定を保存しました ✓', 'success');
     });
 
-    // ナビゲーション
     document.querySelectorAll('.nav-btn[data-target]').forEach(btn => {
       btn.addEventListener('click', () => switchScreen(btn.dataset.target));
     });
@@ -505,77 +424,47 @@
   // ============================================================
   async function sendChatMessage() {
     const input = document.getElementById('chat-input');
-    const text = input.value.trim();
+    const text  = input.value.trim();
     if (!text) return;
     input.value = '';
     renderUserMsg(text);
-    await askGemini(text, false);
+    await askAI(text);
   }
 
-  async function askGemini(userText, isFirst) {
-    const btn = document.getElementById('btn-send');
-    btn.disabled = true;
-
-    // ローディング表示
+  async function askAI(userText) {
+    const sendBtn = document.getElementById('btn-send');
+    sendBtn.disabled = true;
     const loadingEl = renderLoading();
 
     // 会話履歴に追加
     state.chatHistory.push({ role: 'user', parts: [{ text: userText }] });
 
     try {
-      const systemPrompt = `あなたはショウヘイの思考整理パートナーです。
-ショウヘイのプロフィール：30代・DXコンサルタント・MBA・2児の父・AI活用・副業・サイドFIREを目指している。
+      // GAS経由でGeminiを呼ぶ
+      const params = new URLSearchParams();
+      params.append('data', JSON.stringify({
+        action: 'chat',
+        history: state.chatHistory
+      }));
 
-あなたの役割：
-1. ショウヘイが書いた思考メモに対して「掘り下げ質問」を1〜2個する（一問一答形式。長々と解説しない）
-2. X（旧Twitter）投稿の切り口を1〜3個提案する
-
-回答の形式：
----
-[掘り下げ質問]
-（1〜2文の自然な問いかけ）
-
-[X投稿の切り口]
-・切り口名：（ひとことで）
-・切り口名：（ひとことで）
----
-
-注意：
-- 掘り下げ質問はコーチング的に。評価・解説はしない。
-- X切り口は「観察・気づき型」「失敗・反省型」「構造化型」「問い型」「実験・試行型」などから選ぶ。
-- 初回以外は、会話の流れを踏まえて質問する。`;
-
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${state.geminiKey}`;
-
-      const body = {
-        system_instruction: { parts: [{ text: systemPrompt }] },
-        contents: state.chatHistory,
-        generationConfig: { temperature: 0.8, maxOutputTokens: 600 }
-      };
-
-      const res = await fetch(url, {
+      const res = await fetch(state.gasUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        body: params
       });
 
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error?.message || 'APIエラー');
-      }
+      if (!res.ok) throw new Error('通信エラー: ' + res.status);
 
-      const data = await res.json();
-      const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || '（応答なし）';
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error || '不明なエラー');
 
-      // 会話履歴に追加
+      const aiText = json.text;
       state.chatHistory.push({ role: 'model', parts: [{ text: aiText }] });
 
-      // パース
       const { question, angles } = parseAiResponse(aiText);
       loadingEl.remove();
       renderAiMsg(question, angles);
 
-      // currentEntry を更新（保存用）
+      // 保存用エントリを更新
       const mainText = document.getElementById('main-input').value.trim() || userText;
       state.currentEntry = buildEntry(mainText, angles, aiText);
 
@@ -584,7 +473,7 @@
       renderAiMsg('⚠️ ' + err.message, []);
     }
 
-    btn.disabled = false;
+    sendBtn.disabled = false;
   }
 
   function parseAiResponse(text) {
@@ -592,16 +481,14 @@
     const anglesBlock   = text.match(/\[X投稿の切り口\]\n?([\s\S]*?)$/);
 
     const question = questionMatch ? questionMatch[1].trim() : text;
-    const angles = [];
+    const angles   = [];
 
     if (anglesBlock) {
-      const lines = anglesBlock[1].split('\n');
-      lines.forEach(line => {
+      anglesBlock[1].split('\n').forEach(line => {
         const m = line.match(/[・\-]\s*(.+?)：/);
         if (m) angles.push(m[1].trim());
       });
     }
-
     return { question, angles };
   }
 
@@ -619,7 +506,6 @@
   function renderAiMsg(question, angles) {
     const el = document.createElement('div');
     el.className = 'msg ai';
-
     const qEl = document.createElement('div');
     qEl.textContent = question;
     el.appendChild(qEl);
@@ -639,7 +525,6 @@
       });
       el.appendChild(anglesEl);
     }
-
     getMessages().appendChild(el);
     scrollBottom();
   }
@@ -653,16 +538,9 @@
     return el;
   }
 
-  function clearChat() {
-    getMessages().innerHTML = '';
-    state.currentEntry = null;
-  }
-
+  function clearChat()   { getMessages().innerHTML = ''; state.currentEntry = null; }
   function getMessages() { return document.getElementById('chat-messages'); }
-  function scrollBottom()  {
-    const m = getMessages();
-    m.scrollTop = m.scrollHeight;
-  }
+  function scrollBottom() { const m = getMessages(); m.scrollTop = m.scrollHeight; }
 
   // ============================================================
   //  保存処理
@@ -670,52 +548,34 @@
   function buildEntry(content, angles, aiResponse) {
     const now = new Date();
     const pad = n => String(n).padStart(2, '0');
-    const id = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
-
-    return {
-      id,
-      timestamp: now.toISOString(),
-      content,
-      x_angles: angles,
-      ai_response: aiResponse || null,
-      mood: ''
-    };
+    const id  = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+    return { id, timestamp: now.toISOString(), content, x_angles: angles, ai_response: aiResponse || null, mood: '' };
   }
 
   async function saveEntry(content, angles, aiResponse) {
-    const entry = buildEntry(content, angles, aiResponse);
-    return saveEntryObj(entry);
+    return saveEntryObj(buildEntry(content, angles, aiResponse));
   }
 
   async function saveEntryObj(entry) {
-    if (!state.gasUrl) {
-      showToast('設定からGAS URLを入力してください', 'error');
-      return;
-    }
+    if (!state.gasUrl) { showToast('設定からGAS URLを入力してください', 'error'); return; }
 
-    const status = document.getElementById('save-status');
-    status.textContent = '保存中...';
+    document.getElementById('save-status').textContent = '保存中...';
 
-    const now = new Date();
-    const pad = n => String(n).padStart(2, '0');
+    const now  = new Date();
+    const pad  = n => String(n).padStart(2, '0');
     const date = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
 
     try {
       const params = new URLSearchParams();
-      params.append('data', JSON.stringify({ date, entry }));
+      params.append('data', JSON.stringify({ action: 'save', date, entry }));
 
-      await fetch(state.gasUrl, {
-        method: 'POST',
-        body: params,
-        mode: 'no-cors' // GASはCORSヘッダを返せないため no-cors を使用
-      });
+      // 保存はレスポンスを読む必要がないため no-cors でシンプルに送信
+      await fetch(state.gasUrl, { method: 'POST', body: params, mode: 'no-cors' });
 
-      // no-cors の場合レスポンスは読めないが、リクエストは届いている
-      status.textContent = '';
+      document.getElementById('save-status').textContent = '';
       showToast('保存しました ✓', 'success');
-
     } catch (err) {
-      status.textContent = '';
+      document.getElementById('save-status').textContent = '';
       showToast('保存に失敗しました：' + err.message, 'error');
     }
   }
@@ -733,9 +593,9 @@
 
   let toastTimer;
   function showToast(msg, type = '') {
-    const t = document.getElementById('toast');
+    const t  = document.getElementById('toast');
     t.textContent = msg;
-    t.className = 'toast show' + (type ? ' ' + type : '');
+    t.className   = 'toast show' + (type ? ' ' + type : '');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => { t.className = 'toast'; }, 2800);
   }
