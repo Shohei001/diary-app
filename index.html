@@ -631,16 +631,14 @@
       state.chatHistory.push({ role: 'user', parts: [{ text: userText }] });
 
       try {
-        // GAS経由でGeminiを呼ぶ
-        const params = new URLSearchParams();
-        params.append('data', JSON.stringify({
-          action: 'chat',
-          history: state.chatHistory
-        }));
-
+        // GAS経由でGeminiを呼ぶ（JSONボディで送信）
         const res = await fetch(state.gasUrl, {
           method: 'POST',
-          body: params
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'chat',
+            history: state.chatHistory
+          })
         });
 
         if (!res.ok) throw new Error('通信エラー: ' + res.status);
@@ -757,17 +755,23 @@
       const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 
       try {
-        const params = new URLSearchParams();
-        params.append('data', JSON.stringify({ action: 'save', date, entry }));
+        // JSONボディで送信（no-corsを使わないことで実際のエラーを検出できる）
+        const res = await fetch(state.gasUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'save', date, entry })
+        });
 
-        // 保存はレスポンスを読む必要がないため no-cors でシンプルに送信
-        await fetch(state.gasUrl, { method: 'POST', body: params, mode: 'no-cors' });
+        if (!res.ok) throw new Error('通信エラー: ' + res.status);
+
+        const json = await res.json();
+        if (!json.success) throw new Error(json.error || '不明なエラー');
 
         document.getElementById('save-status').textContent = '';
         showToast('保存しました ✓', 'success');
       } catch (err) {
         document.getElementById('save-status').textContent = '';
-        showToast('保存に失敗しました：' + err.message, 'error');
+        showToast('保存エラー：' + err.message, 'error');
       }
     }
 
