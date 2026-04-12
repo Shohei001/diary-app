@@ -631,10 +631,9 @@
       state.chatHistory.push({ role: 'user', parts: [{ text: userText }] });
 
       try {
-        // GAS経由でGeminiを呼ぶ（JSONボディで送信）
+        // GAS経由でGeminiを呼ぶ（JSON文字列をボディに展開、Content-Typeは省略でCORSプリフライトを回避）
         const res = await fetch(state.gasUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             action: 'chat',
             history: state.chatHistory
@@ -755,10 +754,9 @@
       const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 
       try {
-        // JSONボディで送信（no-corsを使わないことで実際のエラーを検出できる）
+        // JSON文字列をボディに展開（Content-Typeは省略でCORSプリフライトを回避）
         const res = await fetch(state.gasUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'save', date, entry })
         });
 
