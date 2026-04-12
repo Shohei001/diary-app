@@ -115,15 +115,21 @@ function handleChat(payload) {
     generationConfig: { temperature: 0.8, maxOutputTokens: 8192 }
   };
 
-  const response = UrlFetchApp.fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    payload: JSON.stringify(requestBody),
-    muteHttpExceptions: true
-  });
-
-  const statusCode = response.getResponseCode();
-  const responseText = response.getContentText();
+  // 503エラー時に最大3回リトライ（1.5秒間隔）
+  let response, statusCode, responseText;
+  const maxRetries = 3;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    response = UrlFetchApp.fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      payload: JSON.stringify(requestBody),
+      muteHttpExceptions: true
+    });
+    statusCode = response.getResponseCode();
+    responseText = response.getContentText();
+    if (statusCode === 200 || statusCode !== 503) break;
+    if (attempt < maxRetries) Utilities.sleep(1500);
+  }
 
   if (statusCode !== 200) {
     return respond({ success: false, error: 'Gemini APIエラー: ' + responseText });
