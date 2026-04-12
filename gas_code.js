@@ -18,10 +18,14 @@ const DIARY_FOLDER_ID = '1ffftUW5wqYoAt36kHSijGNzMpocrF1Sk';
 // ============================================================
 function doPost(e) {
   try {
-    // URLSearchParams（e.parameter.data）と JSON body（e.postData.contents）の両形式に対応
-    const rawData = (e.parameter && e.parameter.data)
-                    ? e.parameter.data
-                    : (e.postData ? e.postData.contents : '{}');
+    // JSON body（Content-Type: application/json）を優先、
+    // URLSearchParams（e.parameter.data）にもフォールバック
+    let rawData = '{}';
+    if (e.postData && e.postData.contents) {
+      rawData = e.postData.contents;
+    } else if (e.parameter && e.parameter.data) {
+      rawData = e.parameter.data;
+    }
     const payload = JSON.parse(rawData);
     const action = payload.action || 'save';
 
