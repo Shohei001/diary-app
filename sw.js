@@ -1,5 +1,5 @@
 // Service Worker - オフライン対応 & ホーム画面追加サポート
-const CACHE_NAME = 'diary-app-v1';
+const CACHE_NAME = 'diary-app-v3';
 const ASSETS = ['/', '/index.html', '/manifest.json'];
 
 self.addEventListener('install', event => {
