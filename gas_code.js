@@ -101,7 +101,7 @@ function handleChat(payload) {
     '- 「どうしたいですか」「何が言いたいですか」は聞かない。\n' +
     '- 会話履歴を必ず参照し、同じ問いを繰り返さない。\n' +
     '- X切り口は「観察・気づき型」「失敗・反省型」「構造化型」「問い型」「実験・試行型」から選ぶ。\n' +
-    '- 返答は200字以内を目安に簡潔に。';
+    '- Phase 1・2は簡潔に（目安200字程度）。Phase 3は思考整理カードを必ず完全に出力すること。';
 
   const url =
     'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' +
@@ -110,7 +110,7 @@ function handleChat(payload) {
   const requestBody = {
     system_instruction: { parts: [{ text: systemPrompt }] },
     contents: payload.history,
-    generationConfig: { temperature: 0.8, maxOutputTokens: 2000 }
+    generationConfig: { temperature: 0.8, maxOutputTokens: 8192 }
   };
 
   const response = UrlFetchApp.fetch(url, {
