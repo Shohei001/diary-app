@@ -665,19 +665,13 @@
     }
 
     function parseAiResponse(text) {
-      const questionMatch = text.match(/\[掘り下げ質問\]\n?([\s\S]*?)(?:\n\[X投稿の切り口\]|$)/);
-      const anglesBlock = text.match(/\[X投稿の切り口\]\n?([\s\S]*?)$/);
-
-      const question = questionMatch ? questionMatch[1].trim() : text;
-      const angles = [];
-
-      if (anglesBlock) {
-        anglesBlock[1].split('\n').forEach(line => {
-          const m = line.match(/[・\-]\s*(.+?)：/);
-          if (m) angles.push(m[1].trim());
-        });
-      }
-      return { question, angles };
+      // AIの全テキストをそのまま返す（旧マーカーを整形）
+      const cleaned = text
+        .replace(/\[掘り下げ質問\]\n?/g, '')
+        .replace(/\[具体化の質問\]\n?/g, '')
+        .replace(/\[X投稿の切り口\]\n?/g, '\n✦ X投稿の切り口\n')
+        .trim();
+      return { question: cleaned, angles: [] };
     }
 
     // ============================================================
@@ -695,6 +689,7 @@
       const el = document.createElement('div');
       el.className = 'msg ai';
       const qEl = document.createElement('div');
+      qEl.style.whiteSpace = 'pre-wrap';
       qEl.textContent = question;
       el.appendChild(qEl);
 
