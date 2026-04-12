@@ -110,7 +110,7 @@ function handleChat(payload) {
   const requestBody = {
     system_instruction: { parts: [{ text: systemPrompt }] },
     contents: payload.history,
-    generationConfig: { temperature: 0.8, maxOutputTokens: 800 }
+    generationConfig: { temperature: 0.8, maxOutputTokens: 2000 }
   };
 
   const response = UrlFetchApp.fetch(url, {
